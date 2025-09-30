@@ -3,133 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IIKIM CoreLink - Reparación de Equipos de Cómputo</title>
+  <title>Portafolio - Desarrollador</title>
   <style>
-    body {
+    /* Reset */
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e6ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: #0a0f1c;
+    }
+
+    /* Fondo tipo matrix */
+    #matrixCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: #0a0f1c;
+    }
+
+    /* Encabezado */
     header {
-      background: linear-gradient(135deg, #0066cc, #004080);
-      color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 4rem 1rem;
+      background: rgba(10, 15, 28, 0.85);
     }
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      color: #4db8ff;
     }
     header p {
       font-size: 1.2rem;
+      color: #9fb6d1;
     }
+
+    /* Navegación */
     nav {
-      background: #004080;
-      padding: 0.5rem;
+      background: rgba(16, 36, 62, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 10;
       text-align: center;
+      padding: 0.8rem;
     }
     nav a {
-      color: white;
-      text-decoration: none;
+      color: #e0e6ed;
       margin: 0 1rem;
       font-weight: bold;
+      transition: color 0.3s;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #4db8ff;
     }
+
+    /* Secciones */
     section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(20, 27, 45, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
-      color: #004080;
+      color: #4db8ff;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 2rem;
     }
-    .services {
+
+    /* Proyectos */
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
     .card {
-      background: #f0f4ff;
-      padding: 1rem;
-      border-radius: 8px;
-      transition: transform 0.2s;
+      background: #1c253a;
+      padding: 1.2rem;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3);
     }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #4db8ff;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #c0c8d6;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.5rem 1rem;
+      background: #4db8ff;
+      color: #0a0f1c;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card a:hover {
+      background: #0099e6;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      background: #004080;
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
+      background: rgba(16, 36, 62, 0.9);
+      color: #9fb6d1;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <!-- Fondo tipo matrix -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Encabezado -->
   <header>
-    <h1>IIKIM CoreLink</h1>
-    <p>Soluciones profesionales en reparación y mantenimiento de equipos de cómputo</p>
+    <h1>Mi Portafolio</h1>
+    <p>Desarrollador | Proyectos de Software | Tecnología</p>
   </header>
 
+  <!-- Menú -->
   <nav>
-    <a href="#sobre">Sobre nosotros</a>
-    <a href="#servicios">Servicios</a>
+    <a href="#sobre">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <!-- Sobre mí -->
   <section id="sobre">
-    <h2>¿Quiénes somos?</h2>
+    <h2>Sobre mí</h2>
     <p>
-      En <strong>IIKIM CoreLink</strong> nos especializamos en brindar un servicio confiable y profesional
-      de reparación y mantenimiento de equipos de cómputo. Nuestro objetivo es
-      ayudarte a mantener tus dispositivos funcionando de manera óptima,
-      ya sea en tu hogar, oficina o negocio.
+    🔥 Soy un informático apasionado por la tecnología, siempre explorando
+    y dando forma a mis propias ideas. Este espacio será mi bitácora personal,
+    donde compartiré los proyectos que voy creando —tanto de software como de 
+    hardware— junto con las experiencias, retos y aprendizajes que surgen en el 
+    camino. 🚀
+    Aquí comienza una aventura de innovación personal, y quiero dejar constancia 
+    de cada paso que vaya construyendo.
     </p>
   </section>
 
-  <section id="servicios">
-    <h2>Nuestros Servicios</h2>
-    <div class="services">
+  <!-- Proyectos -->
+  <section id="proyectos">
+    <h2>Mis Proyectos</h2>
+    <div class="projects">
       <div class="card">
-        <h3>Reparación de hardware</h3>
-        <p>Solucionamos fallas físicas en laptops, computadoras de escritorio y periféricos.</p>
+        <h3>En construcción</h3>
+        <p>Proximamente...</p>
+        <a href="#">Ver proyecto</a>
       </div>
       <div class="card">
-        <h3>Optimización de software</h3>
-        <p>Instalación y configuración de sistemas operativos, limpieza de virus y mejoras de rendimiento.</p>
+        <h3>En construcción</h3>
+        <p>Proximamente...</p>
+        <a href="#">Ver proyecto</a>
       </div>
       <div class="card">
-        <h3>Mantenimiento preventivo</h3>
-        <p>Limpieza física interna y externa, revisión de componentes y actualización de equipos.</p>
+        <h3>En construcción</h3>
+        <p>Proximamente...</p>
+        <a href="#">Ver proyecto</a>       
       </div>
       <div class="card">
-        <h3>Asesoría tecnológica</h3>
-        <p>Te orientamos en la compra, actualización y uso eficiente de tus equipos de cómputo.</p>
+        <h3>En construcción</h3>
+        <p>Proximamente...</p>
+        <a href="#">Ver proyecto</a>
       </div>
     </div>
   </section>
 
+  <!-- Contacto -->
   <section id="contacto">
     <h2>Contacto</h2>
     <p>
-      ¿Necesitas soporte técnico o una cotización?  
-      Escríbenos al correo: <a href="mailto:contacto@iikimcorelink.com">contacto@iikimcorelink.com</a>
+      ¿Quieres colaborar o saber más de mis proyectos? Escríbeme a:  
+      <a href="mailto:redangel14@protonmail.com">redangel14@protonmail.com</a>
     </p>
     <p>
-      También puedes visitarnos en nuestras redes sociales para más información.
+      También puedes seguirme en mis redes o revisar mi GitHub.
     </p>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 IIKIM CoreLink - Todos los derechos reservados</p>
+    <p>&copy; 2025 Mi Portafolio | Diseñado con pasión por la tecnología 💻</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Animación Matrix
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(10, 15, 28, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#4db8ff";
+      ctx.font = fontSize + "px monospace";
+
+      drops.forEach((y, i) => {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        const x = i * fontSize;
+        ctx.fillText(text, x, y * fontSize);
+
+        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      });
+    }
+
+    setInterval(drawMatrix, 50);
+
+    // Animación de aparición secciones
+    const sections = document.querySelectorAll("section");
+    const revealSections = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const secTop = sec.getBoundingClientRect().top;
+        if (secTop < triggerBottom) {
+          sec.classList.add("show");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealSections);
+    revealSections();
+
+    // Ajustar canvas al redimensionar ventana
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
